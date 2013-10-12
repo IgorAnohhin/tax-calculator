@@ -1,0 +1,344 @@
+<html lang="et-EE" xml:lang="et" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="jui/js/jquery.js"></script>
+	<script type="text/javascript" src="jui/js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="jui/css/icomoon.css" />
+	<link rel="stylesheet" type="text/css" href="calc.css?version=2"/>
+</head>
+<div id="fb-root"></div>
+<div id="body" align="center">
+
+<table class="body" cellspacing="0">
+<tr>
+<td valign="top" colspan="2" id="content">
+
+<div id="mainarea">
+<form name="wage" method="post">
+<table border="0" cellspacing="3">
+  <tbody>
+	<tr>
+	  <td>Riik</td>
+	  <td>
+	  <select class="select120" name="Country" onchange="this.form.submit()">
+	  		<option value="1" selected="selected">Eesti</option>
+		<option value="2">Läti</option>
+	  </select>
+	</tr>
+	<tr><td><br/></td></tr>
+  </tbody>
+</table>
+<script type="text/javascript">
+document.write('');
+</script>
+<noscript>
+<p class="error"><img src="./images/alert.gif">&nbsp;<b>VIGA!</b> Veebisirvijas peab olema lubatud JavaScript!</p><br>
+</noscript>
+<script type="text/javascript" language="JavaScript" src="calc.js"></script>
+<!-- <script type="text/javascript" language="JavaScript" src="labels_calc.js" /> -->
+<script type="text/javascript">
+	function ChangeTaxFreeLabel(year) {
+	var labelText = "";
+	if(Number(year) > 2010) {
+		labelText = "Arvesta maksuvaba tulu (144&euro; kuus)";
+	}
+	else {
+		labelText = "Arvesta maksuvaba tulu (2250 kr / &euro;143.8 kuus)";
+	}
+	
+	document.getElementById('taxfreeLabel').innerHTML = labelText;
+}
+function ChangeFundedPensionLabel(year) {
+	var labelText = "";
+	if(Number(year) == 2010) {
+		labelText = "Töötaja on esitanud pensioni II samba maksete jätkamise avalduse";
+	}
+	else {
+		labelText = "Kogumispension (II sammas)";
+	}
+	
+	document.getElementById('fundedPensionLabel').innerHTML = labelText;
+}
+function ChangeUILabels(year) {
+	var employerLabel = "";
+	var employeeLabel = "";
+
+	if (Number(year) == 2013) {
+		employerLabel = "Tööandja töötuskindlustusmakse (1%)";
+		employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2%)";
+	}
+	else {
+		employerLabel = "Tööandja töötuskindlustusmakse (1,4%)";
+		employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2,8%)";
+	}
+	
+	document.getElementById('UIEmployerLabel').innerHTML = employerLabel;
+	document.getElementById('UIEmployeeLabel').innerHTML = employeeLabel;
+}
+function GetRadiobuttonValue(fieldName) {
+	var field = document.forms['wage'].elements[fieldName];
+	for (var i = 0; i < field.length; i++) {
+		if (field[i].checked) {
+			return field[i].value;
+		}
+	}
+}
+function toggleRowVisibility(show)
+{
+var rows = document.getElementById("hours_row").rows;
+document.getElementById("hours_row").style.display = show ? "table-row" : "none";
+}
+function toggleRadioVisibility(year, show)
+{
+var fp2011 = document.getElementById("fp2011");
+var pension_x = document.getElementById("pension_x");
+	if(Number(year) == 2011 && pension_x.checked) {
+		fp2011.style.display = "table-row";
+	}
+	else {
+		fp2011.style.display = "none";
+	}
+}
+</script>
+<div class="result">
+<table id="wage" border="0">
+<tr>
+	<td colspan="4" valign="top">
+	  <input type="radio" name="year" value="2010" onclick="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); ChangeTaxFreeLabel(this.value); ChangeUILabels(this.value); ChangeFundedPensionLabel(this.value); wageCalc();drawChart();" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" id="year2010"><label for="year2010">2010</label>
+	  <input type="radio" name="year" value="2011" onclick="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); ChangeTaxFreeLabel(this.value); ChangeUILabels(this.value); ChangeFundedPensionLabel(this.value); wageCalc();drawChart();" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" id="year2011"><label for="year2011">2011</label>
+	  <input type="radio" name="year" value="2012" onclick="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); ChangeTaxFreeLabel(this.value); ChangeUILabels(this.value); ChangeFundedPensionLabel(this.value); wageCalc();drawChart();" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" id="year2012"><label for="year2012">2012</label>
+	  <input type="radio" name="year" value="2013" onclick="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); ChangeTaxFreeLabel(this.value); ChangeUILabels(this.value); ChangeFundedPensionLabel(this.value); wageCalc();drawChart();" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" checked="checked" id="year2013"><label for="year2013">2013</label>
+	<hr/>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" valign="top">
+	<h2>Lähteandmed</h2>
+	<table class="form" width="290">
+	<tr>
+		<td width="43%" valign="top" rowspan="2">
+		  <input type="radio" id="input_1" name="input" value="1" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();"><label for="input_1">Tööandja kulu</label><br/>
+		  <input type="radio" id="input_2" name="input" value="2" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();" checked="checked"><label for="input_2">Brutopalk</label><br/>
+		  <input type="radio" id="input_3" name="input" value="3" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();"><label for="input_3">Netopalk</label>
+		  &nbsp;<div id="help1-title" class="handcursor">
+			<img src="./images/help.gif">
+		</div>		</td>
+		<td width="57%"><input class="vis biginput R W120" id="eur" name="eur" value="" type="text" onkeyup="wageCalc(); drawChart();" onchange="wageCalc(); drawChart();" onClick="this.value = '';">&nbsp;EUR</td>
+	</tr>
+	<tr>
+	<td valign="top">
+	<select class="select120" id="period" name="period" onclick="toggleRowVisibility(this.selectedIndex == 0); wageCalc(); drawChart();" onchange="toggleRowVisibility(this.selectedIndex == 0); wageCalc(); drawChart();" onkeyup="toggleRowVisibility(this.selectedIndex == 0); wageCalc(); drawChart();">
+	  <option value="1">tunnis</option>
+	  <option value="2" selected="selected">kuus</option>
+	  <option value="3" id="annual">aastas</option>
+	</select>
+	</td>
+	</tr>
+	<tr id="hours_row" style="display:none">
+		<hr/>
+		<td>Töötundide arv kuus</td><td><input class="vis input R W60" type="text" id="workhours" name="workhours" onkeyup="wageCalc(); drawChart();" onClick="this.value = '';" value="" maxlength="4"></td>
+	</tr>
+	</table>
+	</td>
+	<td rowspan="11" class="vr" width="11">&nbsp;</td>
+	<td valign="top" rowspan="11"><h2>Mahaarvamised</h2><hr/>
+	<table class="form" width="290">
+	<tr><td valign="top"><input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();" checked="checked"></td><td><div id="minWage" style="display:inline"><label id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label></div>&nbsp;<div id="help2-title" class="handcursor"><img src="./images/help.gif"></div></td></tr>
+	<tr><td valign="top"><input type="checkbox" id="ui1_x" name="ui1_x" value="true" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();" checked="checked"></td><td><label id="UIEmployerLabel" for="ui1_x">Tööandja töötuskindlustusmakse (1%)</label>&nbsp;<div id="help3-title" class="handcursor"><img src="./images/help.gif"></div></td></tr>
+	<tr><td valign="top"><input type="checkbox" id="ui2_x" name="ui2_x" value="true" onkeyup="wageCalc();drawChart();" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();" checked="checked"></td><td><label id="UIEmployeeLabel" for="ui2_x">Töötaja (kindlustatu) töötuskindlustusmakse (2%)</label></td></tr>
+	<tr><td valign="top"><input type="checkbox" id="pension_x" name="pension_x" value="true" onclick="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); wageCalc(); drawChart();" onchange="toggleRadioVisibility(GetRadiobuttonValue('year'), this.selectedIndex == 0); wageCalc(); drawChart();" checked="checked"></td><td width="100%"><label id="fundedPensionLabel" for="pension_x">Kogumispension (II sammas)</label>&nbsp;<div id="help4-title" class="handcursor"><img src="./images/help.gif"></div></td></tr>
+	<tr id="fp2011" style="display:none">
+	<td>&nbsp;</td>
+	<td>
+	  <input type="radio" id="p1" name="fp2011" value="1" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();" checked="checked"><label for="p1">Ei esitanud 2009. a maksete jätkamise avaldust</label><br/>
+	  <input type="radio" id="p2" name="fp2011" value="2" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();"><label for="p2">Esitas 2009. a maksete jätkamise avalduse</label><br/>
+	  <input type="radio" id="p3" name="fp2011" value="3" onchange="wageCalc();drawChart();" onclick="wageCalc();drawChart();"><label for="p3">Esitas maksete jätkamise avalduse (s. 1942-1954)</label>
+	</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+
+</table>
+<table class="form">
+
+<tr><td valign="top">
+<div id="help1" class="hide"><div class="notice">
+<h3>Tööandja kulu ("palgafond")</h3><p>Tööandja kogukulu, sealhulgas töötajale töö eest makstav töötasu, muud tasud ning hüvitised koos kõigi maksude ja maksetega.</p>
+<h3>Brutopalk</h3><p>Töölepingus või õigusaktis kindlaks määratud töötasu, sealhulgas majandustulemustelt ja tehingutelt makstav tasu, mille hulka on arvutatud seaduse alusel kinnipidamisele kuuluvad maksud ja maksed (s.h. tulumaks, töötaja (kindlustatu) 
+töötuskindlustusmakse ning kogumispensioni teise sambaga liitumise korral kogumispensioni makse), muud tasud ning hüvitised. 2013. aastal on töötasu alammääraks täistööajaga töötamise korral tunnis 1,90 eurot ja kuus 320 eurot.</p>
+<h3>Netopalk</h3><p>Töötasu ning muude tasude ning hüvitiste summa, mille töötaja saab kätte pärast maksude ning maksete (sealhulgas tulumaks, töötuskindlustusmakse 
+jne) maha arvamist.</p>
+<hr/><p><b>NB! Sotsiaalmaksuseaduse § 2<sup>1</sup> alusel kehtestatav sotsiaalmaksu maksmise aluseks olev kuumäär on 2013. aastal 290 eurot, seega 
+sotsiaalmaksu minimaalne kohustus on 95,7 eurot kuus.</b></p>
+</div></div>
+<div id="help2" class="hide"><div class="notice">
+<h3>Maksuvaba tulu</h3><p>Eesti residendist füüsilise isiku maksustamisperioodi tulust maha arvatav maksuvaba tulu.
+Maksuvaba tulu on alates 2011. aastast 1728 &euro; aastas. Vt. täpsemalt <a href="https://www.riigiteataja.ee/akt/101062013020?leiaKehtiv" target="_blank">tulumaksuseadusest</a>.</p>
+<h3>Töötasu muutus</h3><p>Kui soovite arvutada kui palju kasvavad tööandja kulud näiteks brutotöötasu tõstmisel või kui palju tõuseb töötaja netopalk kui brutopalga tõus on näiteks 50 eurot, siis jätke väli "Arvesta maksuvaba tulu" tühjaks ning sisestage lähteandmetesse ainult palgamuutuse summa.</p></div></div>
+<div id="help3" class="hide"><div class="notice">
+<h3>Töötuskindlustusmakse</h3><p>Tööandja töötuskindlustusmakse määr 2013. aastal on 1%</p><p> Töötaja (kindlustatu) töötuskindlustusmakse määr 2013. aastal 
+on 2%</p><p><a href="https://www.riigiteataja.ee/akt/106072013008?leiaKehtiv" target="_blank">Töötuskindlustuse seaduse</a> 
+kohaselt on antud makse maksjateks s.h. töötaja, avalik teenistuja, võlaõigusliku lepingu alusel teenust osutav 
+füüsiline isik. Töötaja ja tööandja makse määrad järgmiseks kalendriaastaks kehtestab 
+Vabariigi Valitsus hiljemalt jooksva kalendriaasta 1. detsembriks.</p><hr><p><b>NB!</b> Juhul kui töötaja (kindlustatu) on jõudnud vanaduspensioniikka 
+või talle on määratud riikliku pensionikindlustuse seaduse §-s 9 sätestatud ennetähtaegne vanaduspension, arvestatakse töötajale 
+töötuskindlustusmakset üksnes <b>tööandjale</b> kehtestatud määras (alates 1. jaanuarist 2013: 1%).</p></div></div>
+<div id="help4" class="hide"><div class="notice">
+<h3>Kogumispensioni makse</h3><p><p>Makset on 
+kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud või seadusega kohustatud residendist füüsiline isik (kes on esitanud maksete jätkamise avalduse), kui tema elukoht 
+on Eestis või kui ta viibib Eestis 12 järjestikuse kalendrikuu jooksul vähemalt 183 päeva. Makse määraks on 
+2% <a href="https://www.riigiteataja.ee/akt/125102012014?leiaKehtiv" target="blank_">kogumispensionide 
+seaduse</a> § 7 lõikes 1 nimetatud summadelt.</p>
+</div></div>
+</td></tr>
+<tr><td><hr/></td></tr>
+<tr>
+<td rowspan="11" valign="top">
+<script type="text/javascript">
+
+google.load('visualization', '1', {'packages':['corechart']});
+google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+	var A = getFieldFloatValue("taxes");
+	var B = getFieldFloatValue("localtaxes");
+	var C = getFieldFloatValue("netwage");
+	var D = getFieldFloatValue("pension");
+
+	var data = new google.visualization.DataTable();
+	data.addColumn('string', 'Topping');
+	data.addColumn('number', 'Slices');
+	data.addRows([
+	['Riigile laekub maksudena', A],
+	['KOV-le laekub maksudena', B],
+	['Töötaja saab palgana kätte', C],
+	['Kogumispensioni fondi laekub', D]
+	]);
+
+	var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	var options = {
+		width: 500,
+		height: 200,
+		colors: ['#cc0000', '#2e5e20', '#3085b3', '#abd5ff'],
+		backgroundColor: '#e9f2f5',
+		is3D: true,
+		legend: 'right',
+		legendTextStyle: {color: '#3085b3'},
+		chartArea:{width:"100%",height:"100%"}
+	};
+
+	chart.draw(data, options);
+
+}
+</script>
+
+<div>
+<table width="595" border="0">
+<tr>
+	<td width="50%"><H2>Tulemus</H2></td>
+	<td width="25%" align="right"><h3>EUR</h3></td>
+	<td width="25%" align="right" colspan="2"><h3>%</h3></td>
+</tr>
+<tr><td colspan="4"><hr/></td></tr>
+<tr>
+	<td>Tööandja kulu kokku (palgafond): </td>
+	<td align="right"><input name="" id="wagefund" value="0.00" type="text" class="hidden biginput R W120" /></td>
+	<td align="right"><input name="" id="wagefund_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td><input type="radio" id="pct1" name="percent" value="1" onchange="wageCalc();"  onclick="wageCalc();" onkeyup="wageCalc();" checked="checked"/></td>
+</tr>
+<tr><td colspan="4"><hr/></td></tr>
+<tr>
+	<td>Sotsiaalmaks: </td>
+	<td align="right"><input name="" id="socialtax" value="0.00" type="text" class="hidden input R W120" /></td>
+	<td align="right"><input name="" id="socialtax_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td></td>
+</tr>
+	<td vAlign="top">Töötuskindlustusmakse (tööandja): </td>
+	<td align="right"><input name="" id="ui_employer" value="0.00" type="text" class="hidden input R W120" /></td>
+	<td align="right"><input name="" id="ui_employer_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td></td>
+</tr>
+<tr><td colspan="4"><hr/></td></tr>
+<tr>
+	<td>Brutopalk: </td>
+	<td align="right"><input name="" id="grosswage" value="0.00" type="text" class="hidden biginput R W120" /></td>
+	<td align="right"><input name="" id="grosswage_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td><input type="radio" id="pct2" name="percent" value="2" onchange="wageCalc();"  onclick="wageCalc();" onkeyup="wageCalc();" /></td>
+</tr>
+<tr><td colspan="4"><hr/></td></tr>
+<tr>
+	<td>Kogumispension (II sammas): </td>
+	<td align="right"><input name="" id="fpp_1" value="0.00" type="text" class="hidden input R W120" /></td>
+	<td align="right"><input name="" id="fpp_1_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td></td>
+</tr>
+<tr>
+	<td vAlign="top">Töötuskindlustusmakse (töötaja): </td>
+	<td align="right"><input name="" id="ui_employee" value="0.00" type="text" class="hidden input R W120" /></td>
+	<td align="right"><input name="" id="ui_employee_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td></td>
+</tr>
+<tr>
+	<td>Tulumaks: </td>
+	<td align="right"><input name="" id="incometax" value="0.00" type="text" class="hidden input R W120" /></td>
+	<td align="right"><input name="" id="incometax_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td></td>
+</tr>
+<tr><td colspan="4"><hr/></td></tr>
+<tr>
+	<td>Netopalk: </td>
+	<td align="right"><input name="" id="netwage" value="0.00" type="text" class="hidden biginput R W120" /></td>
+	<td align="right"><input name="" id="netwage_pct" value="0.00" type="text" class="hidden s-input R W120" /></td>
+	<td><input type="radio" id="pct3" name="percent" value="3" onchange="wageCalc();"  onclick="wageCalc();" onkeyup="wageCalc();"/></td>
+</tr>
+<tr><td colspan="4"><hr></td></tr>
+</table>
+<input type="hidden" id="taxes" />
+<input type="hidden" id="localtaxes" />
+<input type="hidden" id="pension" />
+<br/><br/>
+<div align="center" id="chart_div"></div>
+</div>
+</td>
+</tr>
+</table>
+<div id="chart_div"></div></div>
+</form>
+
+</div></td>
+</tr>
+<tr></tr>
+</table>
+
+</div>
+<script type="text/javascript">
+
+$(function(){
+
+	$("#help1-title").click(function(){
+		$("#help1").toggleClass("show", 1000);
+		return false;
+	});
+	
+	$("#help2-title").click(function(){
+		$("#help2").toggleClass("show", 1000);
+		return false;
+	});
+	
+	$("#help3-title").click(function(){
+		$("#help3").toggleClass("show", 1000);
+		return false;
+	});
+	
+	$("#help4-title").click(function(){
+		$("#help4").toggleClass("show", 1000);
+		return false;
+	});
+	
+});
+
+</script>
+</body>
+</html>

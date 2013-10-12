@@ -1,4 +1,3 @@
-//<script>
 function ChangeTaxFreeLabel(year) {
 	var labelText = "";
 	if(Number(year) > 2010) {
@@ -13,7 +12,7 @@ function ChangeTaxFreeLabel(year) {
 function ChangeFundedPensionLabel(year) {
 	var labelText = "";
 	if(Number(year) == 2010) {
-		labelText = "Töötaja on esitanud pensioni II samba maksete jätkamise avalduse";
+		labelText = "Tï¿½ï¿½taja on esitanud pensioni II samba maksete jï¿½tkamise avalduse";
 	}
 	else {
 		labelText = "Kogumispension (II sammas)";
@@ -26,16 +25,16 @@ function ChangeUILabels(year) {
 	var employeeLabel = "";
 
 	if (Number(year) == 2013) {
-		employerLabel = "Tööandja töötuskindlustusmakse (1%)";
-		employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2%)";
+		employerLabel = "Tï¿½ï¿½andja tï¿½ï¿½tuskindlustusmakse (1%)";
+		employeeLabel = "Tï¿½ï¿½taja (kindlustatu) tï¿½ï¿½tuskindlustusmakse (2%)";
 	}
 /*	else if (Number(year) <= 2012) {
-		employerLabel = "Tööandja töötuskindlustusmakse (1,4%)";
-		employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2,8%)";
+		employerLabel = "Tï¿½ï¿½andja tï¿½ï¿½tuskindlustusmakse (1,4%)";
+		employeeLabel = "Tï¿½ï¿½taja (kindlustatu) tï¿½ï¿½tuskindlustusmakse (2,8%)";
 	}*/
 	else {
-		employerLabel = "Tööandja töötuskindlustusmakse (1,4%)";
-		employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2,8%)";
+		employerLabel = "Tï¿½ï¿½andja tï¿½ï¿½tuskindlustusmakse (1,4%)";
+		employeeLabel = "Tï¿½ï¿½taja (kindlustatu) tï¿½ï¿½tuskindlustusmakse (2,8%)";
 	}
 	
 	document.getElementById('UIEmployerLabel').innerHTML = employerLabel;
@@ -65,4 +64,3 @@ var pension_x = document.getElementById("pension_x");
 		fp2011.style.display = "none";
 	}
 }
-//</script>

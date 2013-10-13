@@ -134,7 +134,7 @@ document.write('');
 	<td class="bordered">TÃļÃļandja kulu kokku (palgafond): </td>
 	<td class="bordered"><input name="" id="wagefund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td class="bordered"><input name="" id="wagefund_pct" value="0.00" type="text" class="noinput" /></td>
-	<td class="bordered"><input type="radio" id="pct1" name="percent" value="1" checked="checked"/></td>
+	<td class="bordered"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
 </tr>
 
 <tr>
@@ -154,7 +154,7 @@ document.write('');
 	<td  class="bordered">Brutopalk: </td>
 	<td  class="bordered"><input name="" id="grosswage" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td  class="bordered"><input name="" id="grosswage_pct" value="0.00" type="text" class="noinput" /></td>
-	<td  class="bordered"><input type="radio" id="pct2" name="percent" value="2" /></td>
+	<td  class="bordered"><input type="radio" id="percent2" name="percent" value="2" /></td>
 </tr>
 
 <tr>
@@ -180,7 +180,7 @@ document.write('');
 	<td class="bordered">Netopalk: </td>
 	<td class="bordered"><input name="" id="netwage" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td class="bordered"><input name="" id="netwage_pct" value="0.00" type="text" class="noinput" /></td>
-	<td class="bordered"><input type="radio" id="pct3" name="percent" value="3" /></td>
+	<td class="bordered"><input type="radio" id="percent3" name="percent" value="3" /></td>
 </tr>
 
 </table>
@@ -434,7 +434,7 @@ $(function (){
         drawChart();
     });
 
-    $("[id*='pct']").each(function(index){
+    $("[id*='percent']").each(function(index){
         $(this).click(function(){
             calculate();
         });

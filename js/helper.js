@@ -9,12 +9,12 @@ function calculate() {
     var data_1		= document.getElementById("data_1");
     var data_2		= document.getElementById("data_2");
     var data_3		= document.getElementById("data_3");
-    var pen1			= document.getElementById("pen1");
-    var pen2			= document.getElementById("pen2");
-    var pen3			= document.getElementById("pen3");
-    var pct1		= document.getElementById("pct1");
-    var pct2		= document.getElementById("pct2");
-    var pct3		= document.getElementById("pct3");
+    var pen1		= document.getElementById("pen1");
+    var pen2		= document.getElementById("pen2");
+    var pen3		= document.getElementById("pen3");
+    var percent1	= document.getElementById("percent1");
+    var percent2	= document.getElementById("percent2");
+    var percent3	= document.getElementById("percent3");
 
     var socialtax	= document.getElementById("socialtax");
     var grosswage	= document.getElementById("grosswage");
@@ -119,7 +119,7 @@ function calculate() {
     pension.value		= round(grosswage.value*(pr1 + pr2), 2);
     taxes.value			= round(1*ui_employer.value + 1*ui_employee.value + 1*socialtax.value + 1*incometax.value - 1*grosswage.value*pr2 - 1*localtaxes.value, 2); // calculate taxes*/
 
-    if (pct1.checked == true) {
+    if (percent1.checked == true) {
         socialtax_pct.value		= round(100*socialtax.value/wagefund.value, 2);
         grosswage_pct.value		= round(100*grosswage.value/wagefund.value, 2);
         ui_employer_pct.value	= round(100*ui_employer.value/wagefund.value, 2);
@@ -129,7 +129,7 @@ function calculate() {
         netwage_pct.value		= round(100*netwage.value/wagefund.value, 2);
         wagefund_pct.value		= round(100*wagefund.value/wagefund.value, 2);
     }
-    if (pct2.checked == true) {
+    if (percent2.checked == true) {
         socialtax_pct.value		= round(100*socialtax.value/grosswage.value, 2);
         grosswage_pct.value		= round(100*grosswage.value/grosswage.value, 2);
         ui_employer_pct.value	= round(100*ui_employer.value/grosswage.value, 2);
@@ -139,7 +139,7 @@ function calculate() {
         netwage_pct.value		= round(100*netwage.value/grosswage.value, 2);
         wagefund_pct.value		= round(100*wagefund.value/grosswage.value, 2);
     }
-    if (pct3.checked == true) {
+    if (percent3.checked == true) {
         socialtax_pct.value		= round(100*socialtax.value/netwage.value, 2);
         grosswage_pct.value		= round(100*grosswage.value/netwage.value, 2);
         ui_employer_pct.value	= round(100*ui_employer.value/netwage.value, 2);

@@ -1,4 +1,4 @@
-function wageCalc() 
+function taxCalc()
 {
 var eur			= getFieldFloatValue("eur");
 var workhours	= getFieldFloatValue("workhours");

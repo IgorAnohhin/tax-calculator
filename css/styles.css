@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#result td{
+	border:none;
+	vertical-align:middle;
+}
+#conteiner {
+	width:780px;
+	margin:20px auto;
+}
+.well-white {
+	background: #ffffff;
+}
+
+/*input {
+	height:30px !important;
+}
+*/
+input.noinput {
+	border:none;
+	background-color:none;
+	text-align:right;
+	padding:0;
+	margin:0;
+	-webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+     -moz-transition: none;
+       -o-transition: none;
+          transition: none;
+	
+}
+
+td.bordered {
+	border-bottom:1px solid #d5d5d5 !important;
+}
+
+input.bolded {
+	font-weight:bold !important;
+	font-size:105%;
+}
+
+input.bigsize {
+	font-size:125%
+}
+
+div#chart_div {
+	padding-top:20px;
+}
+
+.popover {
+	font-size:12px;
+	max-width: 376px;
+}
+

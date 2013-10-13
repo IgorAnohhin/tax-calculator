@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
     <script type="text/javascript" src="js/bootstrap-popover.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/calc.js"></script>
+    <script type="text/javascript" src="js/helper.js"></script>
 
 </head>
 <body>
@@ -50,21 +50,21 @@ document.write('');
         <legend>LÃ¤hteandmed</legend>
         <div style="padding-bottom:20px">
           <label class="radio inline">
-          <input type="radio" id="input_1" name="input" value="1" >TÃļÃļandja kulu</label>
+          <input type="radio" id="data_1" name="data" value="1" >TÃļÃļandja kulu</label>
            <a href="#" id="tip-1" data-toggle="popover"> <i class="icon-question-sign"></i></a>
 
 		  <label class="radio inline">
-          <input type="radio" id="input_2" name="input" value="2" checked="checked">Brutopalk</label>
+          <input type="radio" id="data_2" name="data" value="2" checked="checked">Brutopalk</label>
             <a href="#" id="tip-2" data-toggle="popover"> <i class="icon-question-sign"></i></a>
 
 		  <label class="radio inline">
-          <input type="radio" id="input_3" name="input" value="3" >Netopalk</label>
+          <input type="radio" id="data_3" name="data" value="3" >Netopalk</label>
            <a href="#" id="tip-3" data-toggle="popover"> <i class="icon-question-sign"></i></a>
         </div>
           <div>
-          <input class="span2" id="eur" name="eur" value="0.0" type="text" onClick="this.value = '';">&nbsp;&euro;
+          <input class="span2" id="sum" name="sum" value="0.0" type="text" onClick="this.value = '';">&nbsp;&euro;
           
-      <select class="span2" id="period" name="period" >
+      <select class="span2" id="pay_period" name="pay_period" >
 	  <option value="1">tunnis</option>
 	  <option value="2" selected="selected">kuus</option>
 	  <option value="3" id="annual">aastas</option>
@@ -73,8 +73,8 @@ document.write('');
           
 	<div id="hours_row" style="display:none">
 		<hr/>
-		<label  class="inline" for="workhours">TÃļÃļtundide arv kuus
-        <input class="span2" type="text" id="workhours" name="workhours" onClick="this.value = '';" value="" maxlength="4">
+		<label  class="inline" for="hours">TÃļÃļtundide arv kuus
+        <input class="span2" type="text" id="hours" name="hours" onClick="this.value = '';" value="0" maxlength="4">
         </label>
     </div>              
 
@@ -87,11 +87,10 @@ document.write('');
     <div>
 	 <input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" checked="checked">
      <label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
-	</div>
-  
+    </div>
   <div>
-  <input type="checkbox" class="pull-left" id="ui1_x" name="ui1_x" value="true" checked="checked">
-  <label class="checkbox inline" id="UIEmployerLabel" for="ui1_x">TÃļÃļandja tÃļÃļtuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+    <input type="checkbox" class="pull-left" id="ui1_x" name="ui1_x" value="true" checked="checked">
+    <label class="checkbox inline" id="UIEmployerLabel" for="ui1_x">TÃļÃļandja tÃļÃļtuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
   </div>
   <div>
 	<input type="checkbox" class="pull-left" id="ui2_x" name="ui2_x" value="true" checked="checked">
@@ -102,16 +101,16 @@ document.write('');
     <label class="checkbox inline" id="fundedPensionLabel" for="pension_x">Kogumispension (II sammas)</label><a href="#" id="tip-6" data-toggle="popover">  <i class="icon-question-sign"></i></a>
  </div>   
     
-    <div id="fp2011" style="display:none;">
+    <div id="penYear2011" style="display:none;">
 	  <div style="padding-left:40px">
-      <label class="radio" for="p1">
-      <input type="radio" id="p1" name="fp2011" value="1" checked="checked">Ei esitanud 2009. a maksete jÃ¤tkamise avaldust</label>
+      <label class="radio" for="pen1">
+      <input type="radio" id="pen1" name="penYear2011" value="1" checked="checked">Ei esitanud 2009. a maksete jÃ¤tkamise avaldust</label>
       
-      <label class="radio" for="p2">
-	  <input type="radio" id="p2" name="fp2011" value="2" >Esitas 2009. a maksete jÃ¤tkamise avalduse</label>
+      <label class="radio" for="pen2">
+	  <input type="radio" id="pen2" name="penYear2011" value="2" >Esitas 2009. a maksete jÃ¤tkamise avalduse</label>
 	  
-      <label class="radio" for="p3">
-      <input type="radio" id="p3" name="fp2011" value="3" >Esitas maksete jÃ¤tkamise avalduse (s. 1942-1954)</label>
+      <label class="radio" for="pen3">
+      <input type="radio" id="pen3" name="penYear2011" value="3" >Esitas maksete jÃ¤tkamise avalduse (s. 1942-1954)</label>
       </div>
     </div>
     
@@ -256,14 +255,14 @@ document.write('');
     }
 
     function toggleRadioVisibility(year, show) {
-        var fp2011 = $("#fp2011");
+        var penYear2011 = $("#penYear2011");
         var pension_x = $("#pension_x");
 
         if(Number(year) == 2011 && pension_x.attr("checked")) {
-            fp2011.css("display", "table-row");
+            penYear2011.css("display", "table-row");
         }
         else {
-            fp2011.css("display", "none");
+            penYear2011.css("display", "none");
         }
     }
 
@@ -311,141 +310,141 @@ $(function (){
             SetTaxFreeLabel($(this).val());
             SetUILabels($(this).val());
             SetFundedPensionLabel($(this).val());
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).keyup(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
     });
 
-    $("[id*='input_']").each(function(index){
+    $("[id*='data_']").each(function(index){
         $(this).click(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).keyup(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
     });
 
-    var period = $("#period")
-    period.click(function(){
+    var pay_period = $("#pay_period")
+    pay_period.click(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        taxCalc();
+        calculate();
         drawChart();
     });
 
-    period.keyup(function(){
+    pay_period.keyup(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        taxCalc();
+        calculate();
         drawChart();
     });
 
-    period.change(function(){
+    pay_period.change(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        taxCalc();
+        calculate();
         drawChart();
     });
 
-    $("#eur").each(function(){
+    $("#sum").each(function(){
         $(this).keyup(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
     });
 
-    $("#workhours").keyup(function(){
-        taxCalc();
+    $("#hours").keyup(function(){
+        calculate();
         drawChart();
     });
 
-    $("[name='fp2011']").each(function(index){
+    $("[name='penYear2011']").each(function(index){
         $(this).click(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
     });
 
     $("[name*='ui']").each(function(){
         $(this).click(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
 
         $(this).keyup(function(){
-            taxCalc();
+            calculate();
             drawChart();
         });
     });
 
     $("#taxfree_x").click(function(){
-        taxCalc();
+        calculate();
         drawChart();
     });
 
     $("#taxfree_x").keyup(function(){
-        taxCalc();
+        calculate();
         drawChart();
     });
 
     $("#taxfree_x").change(function(){
-        taxCalc();
+        calculate();
         drawChart();
     });
 
     $("#pension_x").click(function(){
         toggleRadioVisibility(GetRadiobuttonValue('year'), false);
-        taxCalc();
+        calculate();
         drawChart();
     });
 
     $("#pension_x").change(function(){
         toggleRadioVisibility(GetRadiobuttonValue('year'), false);
-        taxCalc();
+        calculate();
         drawChart();
     });
 
     $("[id*='pct']").each(function(index){
         $(this).click(function(){
-            taxCalc();
+            calculate();
         });
 
         $(this).change(function(){
-            taxCalc();
+            calculate();
         });
 
         $(this).keyup(function(){
-            taxCalc();
+            calculate();
         });
     });
 

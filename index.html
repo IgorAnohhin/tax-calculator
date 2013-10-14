@@ -35,16 +35,16 @@ document.write('');
 <legend>Aasta</legend>  
   <div>
     <label class="radio inline">
-      <input type="radio" name="year" value="2010" id="year2010">
+      <input type="radio" name="year" value="2010" id="year_2010">
       2010</label>
     <label class="radio  inline">
-      <input type="radio" name="year" value="2011" id="year2011">
+      <input type="radio" name="year" value="2011" id="year_2011">
       2011</label>
     <label class="radio  inline">
-      <input type="radio" name="year" value="2012" id="year2012">
+      <input type="radio" name="year" value="2012" id="year_2012">
       2012</label>
     <label class="radio  inline">
-      <input type="radio" name="year" value="2013" id="year2013" checked="checked">
+      <input type="radio" name="year" value="2013" id="year_2013" checked="checked">
       2013</label>
   </div>
  
@@ -95,12 +95,12 @@ document.write('');
      <label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
     </div>
   <div>
-    <input type="checkbox" class="pull-left" id="ui1_x" name="ui1_x" value="true" checked="checked">
-    <label class="checkbox inline" id="UIEmployerLabel" for="ui1_x">TÃļÃļandja tÃļÃļtuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+    <input type="checkbox" class="pull-left" id="label1_x" name="label1_x" value="true" checked="checked">
+    <label class="checkbox inline" id="UIEmployerLabel" for="label1_x">TÃļÃļandja tÃļÃļtuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
   </div>
   <div>
-	<input type="checkbox" class="pull-left" id="ui2_x" name="ui2_x" value="true" checked="checked">
-    <label class="checkbox inline"  id="UIEmployeeLabel" for="ui2_x">TÃļÃļtaja (kindlustatu) tÃļÃļtuskindlustusmakse (2%)</label>
+	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked">
+    <label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">TÃļÃļtaja (kindlustatu) tÃļÃļtuskindlustusmakse (2%)</label>
   </div>
   <div>  
 	<input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked">
@@ -138,54 +138,54 @@ document.write('');
 </tr>
 <tr>
 	<td class="bordered">TÃļÃļandja kulu kokku (palgafond): </td>
-	<td class="bordered"><input name="" id="wagefund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td class="bordered"><input name="" id="wagefund_pct" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered"><input name="" id="sallary_fund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td class="bordered"><input name="" id="sallary_fund_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
 </tr>
 
 <tr>
 	<td>Sotsiaalmaks: </td>
-	<td><input name="" id="socialtax" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="socialtax_pct" value="0.00" type="text" class="noinput" /></td>
+	<td><input name="" id="social_tax" value="0.00" type="text" class="noinput bolded" /></td>
+	<td><input name="" id="social_tax_pr" value="0.00" type="text" class="noinput" /></td>
 	<td></td>
 </tr>
 <tr>
 	<td class="bordered">TÃļÃļtuskindlustusmakse (tÃļÃļandja): </td>
-	<td class="bordered"><input name="" id="ui_employer" value="0.00" type="text" class="noinput bolded" /></td>
-	<td class="bordered"><input name="" id="ui_employer_pct" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="bordered"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered"></td>
 </tr>
 
 <tr>
 	<td  class="bordered">Brutopalk: </td>
-	<td  class="bordered"><input name="" id="grosswage" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td  class="bordered"><input name="" id="grosswage_pct" value="0.00" type="text" class="noinput" /></td>
+	<td  class="bordered"><input name="" id="gross_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td  class="bordered"><input name="" id="gross_sallary_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered"><input type="radio" id="percent2" name="percent" value="2" /></td>
 </tr>
 
 <tr>
 	<td>Kogumispension (II sammas): </td>
 	<td><input name="" id="fpp_1" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="fpp_1_pct" value="0.00" type="text" class="noinput" /></td>
+	<td><input name="" id="fpp_1_pr" value="0.00" type="text" class="noinput" /></td>
 	<td></td>
 </tr>
 <tr>
 	<td vAlign="top">TÃļÃļtuskindlustusmakse (tÃļÃļtaja): </td>
-	<td><input name="" id="ui_employee" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="ui_employee_pct" value="0.00" type="text" class="noinput" /></td>
+	<td><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
+	<td><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
 	<td></td>
 </tr>
 <tr>
 	<td class="bordered">Tulumaks: </td>
 	<td class="bordered"><input name="" id="incometax" value="0.00" type="text" class="noinput bolded" /></td>
-	<td class="bordered"><input name="" id="incometax_pct" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered"><input name="" id="incometax_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered"></td>
 </tr>
 
 <tr>
 	<td class="bordered">Netopalk: </td>
-	<td class="bordered"><input name="" id="netwage" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td class="bordered"><input name="" id="netwage_pct" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered"><input name="" id="net_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td class="bordered"><input name="" id="net_sallary_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered"><input type="radio" id="percent3" name="percent" value="3" /></td>
 </tr>
 
@@ -264,7 +264,7 @@ document.write('');
         var penYear2011 = $("#penYear2011");
         var pension_x = $("#pension_x");
 
-        if(Number(year) == 2011 && pension_x.attr("checked")) {
+        if(Number(year) == 2011 && pension_x.is(':checked')) {
             penYear2011.css("display", "table-row");
         }
         else {
@@ -280,7 +280,7 @@ document.write('');
 
         var A = getFieldFloatValue("taxes");
         var B = getFieldFloatValue("localtaxes");
-        var C = getFieldFloatValue("netwage");
+        var C = getFieldFloatValue("net_sallary");
         var D = getFieldFloatValue("pension");
 
         var data = new google.visualization.DataTable();
@@ -310,40 +310,40 @@ document.write('');
 
 $(function (){
 
-    $("[id*='year']").each(function(index){
+    $("[id*='year_']").each(function(index){
         $(this).click(function(){
             toggleRadioVisibility(GetRadiobuttonValue('year'), index == 0);
             SetTaxFreeLabel($(this).val());
             SetUILabels($(this).val());
             SetFundedPensionLabel($(this).val());
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).keyup(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
     });
 
     $("[id*='data_']").each(function(index){
         $(this).click(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).keyup(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
     });
@@ -351,106 +351,106 @@ $(function (){
     var pay_period = $("#pay_period")
     pay_period.click(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     pay_period.keyup(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     pay_period.change(function(){
         toggleRowVisibility(this.selectedIndex == 0);
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("#sum").each(function(){
         $(this).keyup(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
     });
 
     $("#hours").keyup(function(){
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("[name='penYear2011']").each(function(index){
         $(this).click(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
     });
 
     $("[name*='ui']").each(function(){
         $(this).click(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
 
         $(this).keyup(function(){
-            calculate();
+            calculate(getData());
             drawChart();
         });
     });
 
     $("#taxfree_x").click(function(){
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("#taxfree_x").keyup(function(){
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("#taxfree_x").change(function(){
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("#pension_x").click(function(){
         toggleRadioVisibility(GetRadiobuttonValue('year'), false);
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("#pension_x").change(function(){
         toggleRadioVisibility(GetRadiobuttonValue('year'), false);
-        calculate();
+        calculate(getData());
         drawChart();
     });
 
     $("[id*='percent']").each(function(index){
         $(this).click(function(){
-            calculate();
+            calculate(getData());
         });
 
         $(this).change(function(){
-            calculate();
+            calculate(getData());
         });
 
         $(this).keyup(function(){
-            calculate();
+            calculate(getData());
         });
     });
 
@@ -501,6 +501,51 @@ $(function (){
         title: 'Kogumispensioni makse',
         content :'Makset on kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud vÃĩi seadusega kohustatud residendist fÃŧÃŧsiline isik (kes on esitanud maksete jÃ¤tkamise avalduse), kui tema elukoht on Eestis vÃĩi kui ta viibib Eestis 12 jÃ¤rjestikuse kalendrikuu jooksul vÃ¤hemalt 183 pÃ¤eva. Makse mÃ¤Ã¤raks on 2% kogumispensionide seaduse Â§ 7 lÃĩikes 1 nimetatud summadelt.'
     });
+
+    function getData(){
+        var data = {
+            sum: $("#sum").val(),
+            hours: $("#hours").val(),
+            pay_period: $("#pay_period").val(),
+            year_2010: $("#year_2010"),
+            year_2011: $("#year_2011"),
+            year_2012: $("#year_2012"),
+            year_2013: $("#year_2013"),
+            data_1: $("#data_1"),
+            data_2: $("#data_2"),
+            data_3: $("#data_3"),
+            pen1: $("#pen1"),
+            pen2: $("#pen2"),
+            pen3: $("#pen3"),
+            percent1: $("#percent1"),
+            percent2: $("#percent2"),
+            percent3: $("#percent3"),
+            social_tax: $("#social_tax"),
+            social_tax_pr: $("#social_tax_pr"),
+            gross_sallary: $("#gross_sallary"),
+            gross_sallary_pr: $("#gross_sallary_pr"),
+            employer: $("#employer"),
+            employer_pr: $("#employer_pr"),
+            employee: $("#employee"),
+            employee_pr: $("#employee_pr"),
+            fpp_1: $("#fpp_1"),
+            fpp_1_pr: $("#fpp_1_pr"),
+            incometax: $("#incometax"),
+            incometax_pr: $("#incometax_pr"),
+            net_sallary: $("#net_sallary"),
+            net_sallary_pr: $("#net_sallary_pr"),
+            sallary_fund: $("#sallary_fund"),
+            sallary_fund_pr: $("#sallary_fund_pr"),
+            taxes: $("#taxes"),
+            localtaxes: $("#localtaxes"),
+            pension: $("#pension"),
+            taxfree_x: $("#taxfree_x"),
+            label1_x: $("#label1_x"),
+            label2_x: $("#label2_x"),
+            pension_x: $("#pension_x")
+        }
+        return data;
+    }
 });
 </script>
 

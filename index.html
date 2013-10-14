@@ -1,4 +1,5 @@
-<html lang="et-EE" xml:lang="et" xmlns="http://www.w3.org/1999/xhtml" >
+<!doctype html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -53,10 +54,11 @@ document.write('');
   <div>
     <div class="span5 pull-left" style="margin:0; float:left">
   	<fieldset>
-        <legend>LÃ¤hteandmed</legend>
+        <legend>Lähteandmed</legend>
         <div style="padding-bottom:20px">
           <label class="radio inline">
-          <input type="radio" id="data_1" name="data" value="1" >TÃļÃļandja kulu</label>
+          <input type="radio" id="data_1" name="data" value="1" >
+          Tööandja kulu</label>
            <a href="#" id="tip-1" data-toggle="popover"> <i class="icon-question-sign"></i></a>
 
 		  <label class="radio inline">
@@ -96,11 +98,11 @@ document.write('');
     </div>
   <div>
     <input type="checkbox" class="pull-left" id="label1_x" name="label1_x" value="true" checked="checked">
-    <label class="checkbox inline" id="UIEmployerLabel" for="label1_x">TÃļÃļandja tÃļÃļtuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+    <label class="checkbox inline" id="UIEmployerLabel" for="label1_x">Tööandja töötuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
   </div>
   <div>
 	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked">
-    <label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">TÃļÃļtaja (kindlustatu) tÃļÃļtuskindlustusmakse (2%)</label>
+    <label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">Töötaja (kindlustatu) töötuskindlustusmakse (2%)</label>
   </div>
   <div>  
 	<input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked">
@@ -137,7 +139,7 @@ document.write('');
 	<td width="25%" class="bordered" style="text-align:right" colspan="2">%</td>
 </tr>
 <tr>
-	<td class="bordered">TÃļÃļandja kulu kokku (palgafond): </td>
+	<td class="bordered">Tööandja kulu kokku (palgafond): </td>
 	<td class="bordered"><input name="" id="sallary_fund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td class="bordered"><input name="" id="sallary_fund_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
@@ -150,7 +152,7 @@ document.write('');
 	<td></td>
 </tr>
 <tr>
-	<td class="bordered">TÃļÃļtuskindlustusmakse (tÃļÃļandja): </td>
+	<td class="bordered">Töötuskindlustusmakse (tööandja): </td>
 	<td class="bordered"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="bordered"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered"></td>
@@ -170,7 +172,7 @@ document.write('');
 	<td></td>
 </tr>
 <tr>
-	<td vAlign="top">TÃļÃļtuskindlustusmakse (tÃļÃļtaja): </td>
+	<td vAlign="top">Töötuskindlustusmakse (töötaja): </td>
 	<td><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
 	<td><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
 	<td></td>
@@ -458,8 +460,8 @@ $(function (){
         placement : 'right',
         trigger: 'hover',
         html: 'true',
-        title: 'TÃļÃļandja kulu',
-        content :'TÃļÃļandja kogukulu, sealhulgas tÃļÃļtajale tÃļÃļ eest makstav tÃļÃļtasu, muud tasud ning hÃŧvitised koos kÃĩigi maksude ja maksetega.'
+        title: 'Tööandja kulu',
+        content :'Tööandja kogukulu, sealhulgas töötajale töö eest makstav töötasu, muud tasud ning hüvitised koos kõigi maksude ja maksetega.'
     });
 
     $("#tip-2").popover({
@@ -467,7 +469,7 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Brutopalk',
-        content :'TÃļÃļlepingus vÃĩi Ãĩigusaktis kindlaks mÃ¤Ã¤ratud tÃļÃļtasu, sealhulgas majandustulemustelt ja tehingutelt makstav tasu, mille hulka on arvutatud seaduse alusel kinnipidamisele kuuluvad maksud ja maksed (s.h. tulumaks, tÃļÃļtaja (kindlustatu) tÃļÃļtuskindlustusmakse ning kogumispensioni teise sambaga liitumise korral kogumispensioni makse), muud tasud ning hÃŧvitised. 2013. aastal on tÃļÃļtasu alammÃ¤Ã¤raks tÃ¤istÃļÃļajaga tÃļÃļtamise korral tunnis 1,90 eurot ja kuus 320 eurot.'
+        content :'Töölepingus või õigusaktis kindlaks määratud töötasu, sealhulgas majandustulemustelt ja tehingutelt makstav tasu, mille hulka on arvutatud seaduse alusel kinnipidamisele kuuluvad maksud ja maksed (s.h. tulumaks, töötaja (kindlustatu) töötuskindlustusmakse ning kogumispensioni teise sambaga liitumise korral kogumispensioni makse), muud tasud ning hüvitised. 2013. aastal on töötasu alammääraks täistööajaga töötamise korral tunnis 1,90 eurot ja kuus 320 eurot.'
     });
 
     $("#tip-3").popover({
@@ -475,7 +477,7 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Netopalk',
-        content :'TÃļÃļtasu ning muude tasude ning hÃŧvitiste summa, mille tÃļÃļtaja saab kÃ¤tte pÃ¤rast maksude ning maksete  maha arvamist.'
+        content :'Töötasu ning muude tasude ning hüvitiste summa, mille töötaja saab kätte pärast maksude ning maksete  maha arvamist.'
     });
 
     $("#tip-4").popover({
@@ -483,15 +485,15 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Maksuvaba tulu',
-        content :'Eesti residendist fÃŧÃŧsilise isiku maksustamisperioodi tulust maha arvatav maksuvaba tulu.Maksuvaba tulu on alates 2011. aastast 1728 &euro; aastas.'
+        content :'Eesti residendist füüsilise isiku maksustamisperioodi tulust maha arvatav maksuvaba tulu.Maksuvaba tulu on alates 2011. aastast 1728 &euro; aastas.'
     });
 
     $("#tip-5").popover({
         placement : 'left',
         trigger: 'hover',
         html: 'true',
-        title: 'TÃļÃļtuskindlustusmakse',
-        content :'TÃļÃļandja tÃļÃļtuskindlustusmakse mÃ¤Ã¤r 2013. aastal on 1%. TÃļÃļtaja (kindlustatu) tÃļÃļtuskindlustusmakse mÃ¤Ã¤r 2013. aastal on 2%.'
+        title: 'Töötuskindlustusmakse',
+        content :'Tööandja töötuskindlustusmakse määr 2013. aastal on 1%. Töötaja (kindlustatu) töötuskindlustusmakse määr 2013. aastal on 2%.'
     });
 
     $("#tip-6").popover({
@@ -499,7 +501,7 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Kogumispensioni makse',
-        content :'Makset on kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud vÃĩi seadusega kohustatud residendist fÃŧÃŧsiline isik (kes on esitanud maksete jÃ¤tkamise avalduse), kui tema elukoht on Eestis vÃĩi kui ta viibib Eestis 12 jÃ¤rjestikuse kalendrikuu jooksul vÃ¤hemalt 183 pÃ¤eva. Makse mÃ¤Ã¤raks on 2% kogumispensionide seaduse Â§ 7 lÃĩikes 1 nimetatud summadelt.'
+        content :'Makset on kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud või seadusega kohustatud residendist füüsiline isik (kes on esitanud maksete jätkamise avalduse), kui tema elukoht on Eestis või kui ta viibib Eestis 12 järjestikuse kalendrikuu jooksul vähemalt 183 päeva. Makse määraks on 2% kogumispensionide seaduse § 7 lõikes 1 nimetatud summadelt.'
     });
 
     function getData(){

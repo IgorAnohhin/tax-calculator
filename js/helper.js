@@ -16,8 +16,10 @@ function calculate(data) {
         {year = 2010;}
 
     var loc;
-    if (year <= 2012)	{loc = 0.114;}
-    else				{loc = 0.1157;}
+    if (year <= 2012)
+        {loc = 0.114;}
+    else
+        {loc = 0.1157;}
 
     var uip1;
     if (year == 2013)

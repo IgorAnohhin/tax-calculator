@@ -81,7 +81,7 @@ document.write('');
           
 	<div id="hours_row" style="display:none">
 		<hr/>
-		<label  class="inline" for="hours">TÃļÃļtundide arv kuus
+		<label  class="inline" for="hours">Töötundide arv kuus
         <input class="span2" type="text" id="hours" name="hours" onClick="this.value = '';" value="0" maxlength="4">
         </label>
     </div>              
@@ -280,10 +280,10 @@ document.write('');
 
     function drawChart() {
 
-        var A = getFieldFloatValue("taxes");
-        var B = getFieldFloatValue("localtaxes");
-        var C = getFieldFloatValue("net_sallary");
-        var D = getFieldFloatValue("pension");
+        var A = getFloatValue(document.getElementById("taxes").value);
+        var B = getFloatValue(document.getElementById("localtaxes").value);
+        var C = getFloatValue(document.getElementById("net_sallary").value);
+        var D = getFloatValue(document.getElementById("pension").value);
 
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');

@@ -32,27 +32,19 @@ document.write('');
 <div class="alert alert-error"><h4>VIGA</h4> Veebisirvijas peab olema lubatud JavaScript!</div>
 </noscript>
 
-<fieldset>
-<legend>Aasta</legend>  
+
   <div>
-    <label class="radio inline">
-      <input type="radio" name="year" value="2010" id="year_2010">
-      2010</label>
-    <label class="radio  inline">
-      <input type="radio" name="year" value="2011" id="year_2011">
-      2011</label>
-    <label class="radio  inline">
-      <input type="radio" name="year" value="2012" id="year_2012">
-      2012</label>
-    <label class="radio  inline">
-      <input type="radio" name="year" value="2013" id="year_2013" checked="checked">
-      2013</label>
-  </div>
- 
- </fieldset>
-  <hr/>
-  <div>
-    <div class="span5 pull-left" style="margin:0; float:left">
+   <div id="set-1" class="pull-left">
+      <fieldset>
+        <legend>Aasta</legend>  
+        <label class="radio"><input type="radio" name="year" value="2010" id="year_2010">2010</label>
+        <label class="radio"><input type="radio" name="year" value="2011" id="year_2011">2011</label>
+        <label class="radio"><input type="radio" name="year" value="2012" id="year_2012">2012</label>
+        <label class="radio"><input type="radio" name="year" value="2013" id="year_2013" checked="checked">2013</label>
+      </fieldset>
+	</div>
+
+    <div id="set-2" class="pull-left">
   	<fieldset>
         <legend>Lähteandmed</legend>
         <div style="padding-bottom:20px">
@@ -89,43 +81,30 @@ document.write('');
      </fieldset>
 	</div>
 
-    <div class="span5">
+    <div id="set-3" class="pull-left">
     <fieldset>
         <legend>Mahaarvamised</legend>
     <div>
-	 <input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" checked="checked">
-     <label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+	 <input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" checked="checked"><label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
     </div>
   <div>
-    <input type="checkbox" class="pull-left" id="label1_x" name="label1_x" value="true" checked="checked">
-    <label class="checkbox inline" id="UIEmployerLabel" for="label1_x">Tööandja töötuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+    <input type="checkbox" class="pull-left" id="label1_x" name="label1_x" value="true" checked="checked"><label class="checkbox inline" id="UIEmployerLabel" for="label1_x">Tööandja töötuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
   </div>
   <div>
-	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked">
-    <label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">Töötaja (kindlustatu) töötuskindlustusmakse (2%)</label>
+	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked"><label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">Töötaja (kindlustatu) töötuskindlustusmakse (2%)</label>
   </div>
   <div>  
-	<input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked">
-    <label class="checkbox inline" id="fundedPensionLabel" for="pension_x">Kogumispension (II sammas)</label><a href="#" id="tip-6" data-toggle="popover">  <i class="icon-question-sign"></i></a>
+	<input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked"><label class="checkbox inline" id="fundedPensionLabel" for="pension_x">Kogumispension (II sammas)</label><a href="#" id="tip-6" data-toggle="popover">  <i class="icon-question-sign"></i></a>
  </div>   
-    
     <div id="penYear2011" style="display:none;">
 	  <div style="padding-left:40px">
-      <label class="radio" for="pen1">
-      <input type="radio" id="pen1" name="penYear2011" value="1" checked="checked">Ei esitanud 2009. a maksete jÃ¤tkamise avaldust</label>
-      
-      <label class="radio" for="pen2">
-	  <input type="radio" id="pen2" name="penYear2011" value="2" >Esitas 2009. a maksete jÃ¤tkamise avalduse</label>
-	  
-      <label class="radio" for="pen3">
-      <input type="radio" id="pen3" name="penYear2011" value="3" >Esitas maksete jÃ¤tkamise avalduse (s. 1942-1954)</label>
+      <label class="radio" for="pen1"><input type="radio" id="pen1" name="penYear2011" value="1" checked="checked">Ei esitanud 2009. a maksete jÃ¤tkamise avaldust</label>
+      <label class="radio" for="pen2"><input type="radio" id="pen2" name="penYear2011" value="2" >Esitas 2009. a maksete jÃ¤tkamise avalduse</label>
+      <label class="radio" for="pen3"><input type="radio" id="pen3" name="penYear2011" value="3" >Esitas maksete jÃ¤tkamise avalduse (s. 1942-1954)</label>
       </div>
     </div>
-    
   </fieldset>
-    
     </div>
-
   </div>
 
 <div class="clearfix"></div>
@@ -134,61 +113,61 @@ document.write('');
 <div>
 <table id="result" class="table">
 <tr style="font-size:21px">
-	<td width="50%" class="bordered">Tulemus
-	<td width="25%" class="bordered" style="text-align:right">&euro;</td>
-	<td width="25%" class="bordered" style="text-align:right" colspan="2">%</td>
+	<td width="40%" class="bordered">Tulemus</td>
+	<td width="30%" class="bordered align-right">&euro;</td>
+	<td width="30%" class="bordered align-right" colspan="2">%</td>
 </tr>
 <tr>
 	<td class="bordered">Tööandja kulu kokku (palgafond): </td>
-	<td class="bordered"><input name="" id="sallary_fund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td class="bordered"><input name="" id="sallary_fund_pr" value="0.00" type="text" class="noinput" /></td>
-	<td class="bordered"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
+	<td class="bordered align-right"><input name="" id="sallary_fund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td class="bordered align-right"><input name="" id="sallary_fund_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered align-right"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
 </tr>
 
 <tr>
 	<td>Sotsiaalmaks: </td>
-	<td><input name="" id="social_tax" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="social_tax_pr" value="0.00" type="text" class="noinput" /></td>
-	<td></td>
+	<td class="align-right"><input name="" id="social_tax" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="align-right"><input name="" id="social_tax_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="align-right"></td>
 </tr>
 <tr>
 	<td class="bordered">Töötuskindlustusmakse (tööandja): </td>
-	<td class="bordered"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
-	<td class="bordered"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
-	<td  class="bordered"></td>
+	<td class="bordered align-right"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="bordered align-right"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
+	<td  class="bordered align-right"></td>
 </tr>
 
 <tr>
 	<td  class="bordered">Brutopalk: </td>
-	<td  class="bordered"><input name="" id="gross_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td  class="bordered"><input name="" id="gross_sallary_pr" value="0.00" type="text" class="noinput" /></td>
-	<td  class="bordered"><input type="radio" id="percent2" name="percent" value="2" /></td>
+	<td  class="bordered align-right"><input name="" id="gross_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td  class="bordered align-right"><input name="" id="gross_sallary_pr" value="0.00" type="text" class="noinput" /></td>
+	<td  class="bordered align-right"><input type="radio" id="percent2" name="percent" value="2" /></td>
 </tr>
 
 <tr>
 	<td>Kogumispension (II sammas): </td>
-	<td><input name="" id="fpp_1" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="fpp_1_pr" value="0.00" type="text" class="noinput" /></td>
-	<td></td>
+	<td class="align-right"><input name="" id="fpp_1" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="align-right"><input name="" id="fpp_1_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="align-right"></td>
 </tr>
 <tr>
-	<td vAlign="top">Töötuskindlustusmakse (töötaja): </td>
-	<td><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
-	<td><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
-	<td></td>
+	<td>Töötuskindlustusmakse (töötaja): </td>
+	<td class="align-right"><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="align-right"><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="align-right"></td>
 </tr>
 <tr>
 	<td class="bordered">Tulumaks: </td>
-	<td class="bordered"><input name="" id="incometax" value="0.00" type="text" class="noinput bolded" /></td>
-	<td class="bordered"><input name="" id="incometax_pr" value="0.00" type="text" class="noinput" /></td>
-	<td class="bordered"></td>
+	<td class="bordered align-right"><input name="" id="incometax" value="0.00" type="text" class="noinput bolded" /></td>
+	<td class="bordered align-right"><input name="" id="incometax_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered align-right"></td>
 </tr>
 
 <tr>
 	<td class="bordered">Netopalk: </td>
-	<td class="bordered"><input name="" id="net_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
-	<td class="bordered"><input name="" id="net_sallary_pr" value="0.00" type="text" class="noinput" /></td>
-	<td class="bordered"><input type="radio" id="percent3" name="percent" value="3" /></td>
+	<td class="bordered align-right"><input name="" id="net_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
+	<td class="bordered align-right"><input name="" id="net_sallary_pr" value="0.00" type="text" class="noinput" /></td>
+	<td class="bordered align-right"><input type="radio" id="percent3" name="percent" value="3" /></td>
 </tr>
 
 </table>
@@ -297,9 +276,9 @@ document.write('');
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         var options = {
-			width: 780,
+			width: 850,
 			height: 300,
-			colors: ['#FFCB01', '#EA2124', '#3AADCD', '#E9761D'],
+			colors: ['#0048c0', '#cd006c', '#95D600', '#f09300'],
 			backgroundColor: 'none',
 			is3D: true,
 			legend: 'right',

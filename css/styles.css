@@ -1,22 +1,41 @@
 @charset "UTF-8";
 /* CSS Document */
 
+body {
+	font-size:16px;
+}
+
+label {
+	font-size:12px;
+}
+
 #result td{
 	border:none;
 	vertical-align:middle;
 }
 #conteiner {
-	width:780px;
+	width:850px;
 	margin:20px auto;
 }
 .well-white {
 	background: #ffffff;
 }
 
-/*input {
-	height:30px !important;
+div#set-1 {
+	width: 60px;
 }
-*/
+
+div#set-2 {
+	width: 320px;
+	margin-left:20px;
+}
+
+div#set-3 {
+	width: 430px;
+	margin-left:20px;
+
+}
+
 input.noinput {
 	border:none;
 	background-color:none;
@@ -37,6 +56,9 @@ td.bordered {
 	border-bottom:1px solid #d5d5d5 !important;
 }
 
+td.align-right {
+	text-align:right;
+}
 input.bolded {
 	font-weight:bold !important;
 	font-size:105%;

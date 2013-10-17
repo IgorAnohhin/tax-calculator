@@ -281,7 +281,7 @@ document.write('');
         var options = {
 			width: 850,
 			height: 300,
-			colors: ['#0048c0', '#cd006c', '#95D600', '#f09300'],
+			colors: ['#007cc3', '#cd006c', '#95D600', '#ff6600'],
 			backgroundColor: 'none',
 			is3D: true,
 			legend: 'right',

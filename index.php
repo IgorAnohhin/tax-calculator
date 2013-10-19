@@ -1,7 +1,7 @@
-<!doctype html>
 <?php
     require('auth.php');
 ?>
+<!doctype html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -26,7 +26,7 @@
 
 <div id="conteiner" class="well well-white">
 
-<form name="wage" method="post" >
+<form name="salary" method="post" >
 
 <script type="text/javascript">
 document.write('');
@@ -230,7 +230,7 @@ document.write('');
 
     function GetRadiobuttonValue(fieldName) {
         var value = '';
-        var radios = $('form[name="wage"] :radio').filter(':checked');
+        var radios = $('form[name="salary"] :radio').filter(':checked');
 
         radios.each(function(index){
             if($(this).attr('name') == fieldName){

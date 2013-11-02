@@ -44,6 +44,7 @@ document.write('');
         <label class="radio"><input type="radio" name="year" value="2011" id="year_2011">2011</label>
         <label class="radio"><input type="radio" name="year" value="2012" id="year_2012">2012</label>
         <label class="radio"><input type="radio" name="year" value="2013" id="year_2013" checked="checked">2013</label>
+        <label class="radio"><input type="radio" name="year" value="2014" id="year_2014">2014</label>
       </fieldset>
 	</div>
 
@@ -53,7 +54,7 @@ document.write('');
         <div style="padding-bottom:20px">
           <label class="radio inline">
           <input type="radio" id="data_1" name="data" value="1" >
-          Tööandja kulu</label>
+          Kulu tööandjale</label>
            <a href="#" id="tip-1" data-toggle="popover"> <i class="icon-question-sign"></i></a>
 
 		  <label class="radio inline">
@@ -64,15 +65,22 @@ document.write('');
           <input type="radio" id="data_3" name="data" value="3" >Netopalk</label>
            <a href="#" id="tip-3" data-toggle="popover"> <i class="icon-question-sign"></i></a>
         </div>
-          <div>
+        <div>
           <input class="span2" id="sum" name="sum" value="0.0" type="text" onClick="this.value = '';">&nbsp;&euro;
           
-      <select class="span2" id="pay_period" name="pay_period" >
-	  <option value="1">tunnis</option>
-	  <option value="2" selected="selected">kuus</option>
-	  <option value="3" id="annual">aastas</option>
-	</select>
-    </div>      
+          <select class="span2" id="pay_period" name="pay_period" >
+            <option value="1">tunnis</option>
+            <option value="2" selected="selected">kuus</option>
+            <option value="3" id="annual">aastas</option>
+          </select>
+        </div>
+
+        <div id="taxfree_c">
+            <label class="inline" for="taxfree">
+            <input class="span2" id="taxfree" name="taxfree" value="144.0" type="text" onClick="this.value = '';">&nbsp;&euro;
+            Maksuvaba tulu
+            </label>
+        </div>
           
 	<div id="hours_row" style="display:none">
 		<hr/>
@@ -86,19 +94,25 @@ document.write('');
 
     <div id="set-3" class="pull-left">
     <fieldset>
-        <legend>Mahaarvamised</legend>
+        <legend>Maha arvata</legend>
     <div>
-	 <input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" checked="checked"><label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu (144&euro; kuus)</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
+	 <input type="checkbox" id="taxfree_x" name="taxfree_x" value="true" checked="checked"><label class="checkbox inline" id="taxfreeLabel" for="taxfree_x">Arvesta maksuvaba tulu</label><a  href="#" id="tip-4" data-toggle="popover"> <i class="icon-question-sign"></i></a>
     </div>
   <div>
     <input type="checkbox" class="pull-left" id="label1_x" name="label1_x" value="true" checked="checked"><label class="checkbox inline" id="UIEmployerLabel" for="label1_x">Tööandja töötuskindlustusmakse (1%)</label><a href="#" id="tip-5" data-toggle="popover"> <i class="icon-question-sign"></i></a>
   </div>
   <div>
-	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked"><label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">Töötaja (kindlustatu) töötuskindlustusmakse (2%)</label>
+	<input type="checkbox" class="pull-left" id="label2_x" name="label2_x" value="true" checked="checked"><label class="checkbox inline"  id="UIEmployeeLabel" for="label2_x">Töötaja töötuskindlustusmakse (2%)</label>
   </div>
-  <div>  
-	<input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked"><label class="checkbox inline" id="fundedPensionLabel" for="pension_x">Kogumispension (II sammas)</label><a href="#" id="tip-6" data-toggle="popover">  <i class="icon-question-sign"></i></a>
- </div>   
+  <div>
+	<fieldset>
+      <input type="checkbox" class="pull-left" id="pension_x" name="pension_x" value="true" checked="checked"><label class="checkbox inline" id="fundedPensionLabel" for="pension_x">Kohustusliku kogumispensioni makse</label><a href="#" id="tip-6" data-toggle="popover">  <i class="icon-question-sign"></i></a>
+      <div id="pen_pr_c" style="display:none;">
+        <label class="radio" for="pen_pr2"><input type="radio" id="pen_pr2" name="pen_pr" value="0.02" checked="checked"> 2%</label>
+        <label class="radio" for="pen_pr3"><input type="radio" id="pen_pr3" name="pen_pr" value="0.03" > 3%</label>
+      </div>
+    </fieldset>
+   </div>
     <div id="penYear2011" style="display:none;">
 	  <div style="padding-left:40px">
       <label class="radio" for="pen1"><input type="radio" id="pen1" name="penYear2011" value="1" checked="checked">Ei esitanud 2009. a maksete jÃ¤tkamise avaldust</label>
@@ -111,17 +125,49 @@ document.write('');
   </div>
 
 <div class="clearfix"></div>
-<hr />
+
+<!--<div>
+    <table class="table">
+        <tr>
+            <td width="100%" class="bordered">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" class="bordered">
+                Maksuvaba tulu (144euro kuus) (rakendamiseks peab olema väljamakse saaja avaldus)
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" class="bordered">
+                Tööandja töötuskindlustusmakse (1%)
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" class="bordered">
+                Töötaja töötuskindlustusmakse (2%)
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" class="bordered">
+                Kohustusliku kogumispensioni makse 2-3%
+            </td>
+        </tr>
+    </table>
+</div>-->
 
 <div>
 <table id="result" class="table">
+<tr>
+	<td width="100%"><a target="_blank" href="http://www.pensionikeskus.ee/?id=652">Kontrolli kogumispensioniga liitumist siin</a></td>
+</tr>
 <tr style="font-size:21px">
-	<td width="40%" class="bordered">Tulemus</td>
+	<td width="40%" class="bordered">Kokkuvõtte</td>
 	<td width="30%" class="bordered align-right">&euro;</td>
 	<td width="30%" class="bordered align-right" colspan="2">%</td>
 </tr>
 <tr>
-	<td class="bordered">Tööandja kulu kokku (palgafond): </td>
+	<td class="bordered">Tööandja tööjõukulud kokku: </td>
 	<td class="bordered align-right"><input name="" id="sallary_fund" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td class="bordered align-right"><input name="" id="sallary_fund_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered align-right"><input type="radio" id="percent1" name="percent" value="1" checked="checked"/></td>
@@ -134,40 +180,40 @@ document.write('');
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td class="bordered">Töötuskindlustusmakse (tööandja): </td>
+	<td class="bordered">Tööandja töötuskindlustusmakse </td>
 	<td class="bordered align-right"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="bordered align-right"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered align-right"></td>
 </tr>
 
 <tr>
-	<td  class="bordered">Brutopalk: </td>
+	<td  class="bordered">Brutotöötasu: </td>
 	<td  class="bordered align-right"><input name="" id="gross_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td  class="bordered align-right"><input name="" id="gross_sallary_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered align-right"><input type="radio" id="percent2" name="percent" value="2" /></td>
 </tr>
 
 <tr>
-	<td>Kogumispension (II sammas): </td>
+	<td>Töötajal kinnipeetav kohustusliku kogumispensioni makse: </td>
 	<td class="align-right"><input name="" id="fpp_1" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="align-right"><input name="" id="fpp_1_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td>Töötuskindlustusmakse (töötaja): </td>
+	<td>Töötajal kinnipeetav töötuskindlustusmakse: </td>
 	<td class="align-right"><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="align-right"><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td class="bordered">Tulumaks: </td>
+	<td class="bordered">Töötajal kinnipeetav tulumaks: </td>
 	<td class="bordered align-right"><input name="" id="incometax" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="bordered align-right"><input name="" id="incometax_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered align-right"></td>
 </tr>
 
 <tr>
-	<td class="bordered">Netopalk: </td>
+	<td class="bordered">Netotöötasu: </td>
 	<td class="bordered align-right"><input name="" id="net_sallary" value="0.00" type="text" class="noinput bolded bigsize" /></td>
 	<td class="bordered align-right"><input name="" id="net_sallary_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered align-right"><input type="radio" id="percent3" name="percent" value="3" /></td>
@@ -191,10 +237,10 @@ document.write('');
     function SetTaxFreeLabel(year) {
         var label = "";
         if(Number(year) > 2010) {
-            label = "Arvesta maksuvaba tulu (144&euro; kuus)";
+            label = "Arvesta maksuvaba tulu";
         }
         else {
-            label = "Arvesta maksuvaba tulu (2250 kr / &euro;143.8 kuus)";
+            label = "Arvesta maksuvaba tulu";
         }
         $("#taxfreeLabel").text(label);
     }
@@ -204,8 +250,11 @@ document.write('');
         if(Number(year) == 2010) {
             label = "Töötaja on esitanud pensioni II samba maksete jätkamise avalduse";
         }
+        else if (Number(year) == 2014) {
+            label = "Kohustusliku kogumispensioni makse 2-3%";
+        }
         else {
-            label = "Kogumispension (II sammas)";
+            label = "Kohustusliku kogumispensioni makse";
         }
 
         $("#fundedPensionLabel").text(label);
@@ -217,11 +266,11 @@ document.write('');
 
         if (Number(year) == 2013) {
             employerLabel = "Tööandja töötuskindlustusmakse (1%)";
-            employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2%)";
+            employeeLabel = "Töötaja töötuskindlustusmakse (2%)";
         }
         else {
             employerLabel = "Tööandja töötuskindlustusmakse (1,4%)";
-            employeeLabel = "Töötaja (kindlustatu) töötuskindlustusmakse (2,8%)";
+            employeeLabel = "Töötaja töötuskindlustusmakse (2,8%)";
         }
 
         $("#UIEmployerLabel").text(employerLabel);
@@ -254,6 +303,14 @@ document.write('');
         else {
             penYear2011.css("display", "none");
         }
+
+        if(Number(year) == 2014 && pension_x.is(':checked')) {
+            $('#pen_pr_c').css("display", "table-row");
+        }
+        else {
+            $('#pen_pr_c').css("display", "none");
+        }
+
     }
 
     // draw google chart
@@ -300,6 +357,23 @@ $(function (){
             SetTaxFreeLabel($(this).val());
             SetUILabels($(this).val());
             SetFundedPensionLabel($(this).val());
+            calculate(getData());
+            drawChart();
+        });
+
+        $(this).keyup(function(){
+            calculate(getData());
+            drawChart();
+        });
+
+        $(this).change(function(){
+            calculate(getData());
+            drawChart();
+        });
+    });
+
+    $("[id*='pen_pr']").each(function(index){
+        $(this).click(function(){
             calculate(getData());
             drawChart();
         });
@@ -408,6 +482,21 @@ $(function (){
     });
 
     $("#taxfree_x").change(function(){
+        if($(this).is(':checked'))
+            $('#taxfree_c').css("display", "table-row");
+        else
+            $('#taxfree_c').css("display", "none");
+
+        calculate(getData());
+        drawChart();
+    });
+
+    $("#taxfree").keyup(function(){
+        calculate(getData());
+        drawChart();
+    });
+
+    $("#taxfree").change(function(){
         calculate(getData());
         drawChart();
     });
@@ -467,7 +556,7 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Maksuvaba tulu',
-        content :'Eesti residendist füüsilise isiku maksustamisperioodi tulust maha arvatav maksuvaba tulu.Maksuvaba tulu on alates 2011. aastast 1728 &euro; aastas.'
+        content :'Eesti residendist füüsilise isiku maksustamisperioodi tulust maha arvatav maksuvaba tulu.Maksuvaba tulu on alates 2011. aastast 1728 &euro; aastas. Rakendamiseks peab olema väljamakse saaja avaldus.'
     });
 
     $("#tip-5").popover({
@@ -495,6 +584,7 @@ $(function (){
             year_2011: $("#year_2011"),
             year_2012: $("#year_2012"),
             year_2013: $("#year_2013"),
+            year_2014: $("#year_2014"),
             data_1: $("#data_1"),
             data_2: $("#data_2"),
             data_3: $("#data_3"),
@@ -524,6 +614,9 @@ $(function (){
             localtaxes: $("#localtaxes"),
             pension: $("#pension"),
             taxfree_x: $("#taxfree_x"),
+            taxfree: $("#taxfree").val(),
+            pen_pr2: $("#pen_pr2"),
+            pen_pr3: $("#pen_pr3"),
             label1_x: $("#label1_x"),
             label2_x: $("#label2_x"),
             pension_x: $("#pension_x")

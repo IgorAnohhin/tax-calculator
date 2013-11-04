@@ -1,6 +1,3 @@
-<?php
-    require('auth.php');
-?>
 <!doctype html>
 <html>
 <head>
@@ -54,7 +51,7 @@ document.write('');
         <div style="padding-bottom:20px">
           <label class="radio inline">
           <input type="radio" id="data_1" name="data" value="1" >
-          Kulu tööandjale</label>
+          Tööandja töökulu</label>
            <a href="#" id="tip-1" data-toggle="popover"> <i class="icon-question-sign"></i></a>
 
 		  <label class="radio inline">
@@ -330,7 +327,7 @@ document.write('');
         data.addRows([
             ['Riigile laekub maksudena', A],
             ['KOV-le laekub maksudena', B],
-            ['Töötaja saab palgana kätte', C],
+            ['Töötaja saab töötasuna kätte', C],
             ['Kogumispensioni fondi laekub', D]
         ]);
 
@@ -572,7 +569,7 @@ $(function (){
         trigger: 'hover',
         html: 'true',
         title: 'Kogumispensioni makse',
-        content :'Makset on kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud või seadusega kohustatud residendist füüsiline isik (kes on esitanud maksete jätkamise avalduse), kui tema elukoht on Eestis või kui ta viibib Eestis 12 järjestikuse kalendrikuu jooksul vähemalt 183 päeva. Makse määraks on 2% kogumispensionide seaduse § 7 lõikes 1 nimetatud summadelt.'
+        content :'Makset on kohustatud tasuma kogumispensioni II sambaga vabatahtlikult liitunud või seadusega kohustatud residendist füüsiline isik (kes on esitanud maksete jätkamise avalduse), kui tema elukoht on Eestis või kui ta viibib Eestis 12 järjestikuse kalendrikuu jooksul vähemalt 183 päeva. Makse määraks on 2% kogumispensionide seaduse § 7 lõikes 1 nimetatud summadelt. 2013. aasta 15. maist kuni 15. septembrini on kohustatud isikul kogumispensionide seaduse (KoPS) § 672 sätestatud tingimustel õigus esitada kontohaldurile või registripidajale kohustusliku kogumispensioni makse määra ajutise tõstmise avaldus (makse tasumiseks määras 3%). <br/><br/> Nimetatud avalduse esitanud isik maksab järgneval neljal aastal, see tähendab aastatel 2014 – 2017 kohustusliku kogumispensioni makset määras 3%.'
     });
 
     function getData(){

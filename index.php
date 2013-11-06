@@ -159,7 +159,7 @@ document.write('');
 	<td width="100%"><a target="_blank" href="http://www.pensionikeskus.ee/?id=652">Kontrolli kogumispensioniga liitumist siin</a></td>
 </tr>
 <tr style="font-size:21px">
-	<td width="40%" class="bordered">Kokkuvõtte</td>
+	<td width="40%" class="bordered">Kokkuvõte</td>
 	<td width="30%" class="bordered align-right">&euro;</td>
 	<td width="30%" class="bordered align-right" colspan="2">%</td>
 </tr>
@@ -177,7 +177,7 @@ document.write('');
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td class="bordered">Tööandja töötuskindlustusmakse </td>
+	<td class="bordered">Tööandja töötuskindlustusmakse: </td>
 	<td class="bordered align-right"><input name="" id="employer" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="bordered align-right"><input name="" id="employer_pr" value="0.00" type="text" class="noinput" /></td>
 	<td  class="bordered align-right"></td>
@@ -191,19 +191,19 @@ document.write('');
 </tr>
 
 <tr>
-	<td>Töötajal kinnipeetav kohustusliku kogumispensioni makse: </td>
+	<td>Töötajalt kinnipeetav kohustusliku kogumispensioni makse: </td>
 	<td class="align-right"><input name="" id="fpp_1" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="align-right"><input name="" id="fpp_1_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td>Töötajal kinnipeetav töötuskindlustusmakse: </td>
+	<td>Töötajalt kinnipeetav töötuskindlustusmakse: </td>
 	<td class="align-right"><input name="" id="employee" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="align-right"><input name="" id="employee_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="align-right"></td>
 </tr>
 <tr>
-	<td class="bordered">Töötajal kinnipeetav tulumaks: </td>
+	<td class="bordered">Töötajalt kinnipeetav tulumaks: </td>
 	<td class="bordered align-right"><input name="" id="incometax" value="0.00" type="text" class="noinput bolded" /></td>
 	<td class="bordered align-right"><input name="" id="incometax_pr" value="0.00" type="text" class="noinput" /></td>
 	<td class="bordered align-right"></td>

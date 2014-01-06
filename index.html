@@ -510,6 +510,26 @@ $(function (){
         drawChart();
     });
 
+    $("#label1_x").click(function(){
+        calculate(getData());
+        drawChart();
+    });
+
+    $("#label1_x").change(function(){
+        calculate(getData());
+        drawChart();
+    });
+
+    $("#label2_x").click(function(){
+        calculate(getData());
+        drawChart();
+    });
+
+    $("#label2_x").change(function(){
+        calculate(getData());
+        drawChart();
+    });
+
     $("[id*='percent']").each(function(index){
         $(this).click(function(){
             calculate(getData());

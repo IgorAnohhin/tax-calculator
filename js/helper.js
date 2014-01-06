@@ -40,6 +40,8 @@ function calculate(data) {
 
     uip1 = data.label1_x.is(":checked") ? uip1 : 0;
     uip2 = data.label2_x.is(":checked") ? uip2 : 0;
+    //console.log('uip1 ' + uip1);
+    //console.log('uip2 ' + uip2);
 
     var pr1;
     if (year == 2010)
@@ -156,11 +158,12 @@ function calculate(data) {
 function round(n,dec) {
 	X = n * Math.pow(10,dec);
 	//X= Math.round(X);
-    console.log('n ' + n);
-    console.log('X ' + X);
-    console.log('XX ' + Math.ceil((21.065)*100)/100);
+    //console.log('n ' + n);
+    //console.log('X ' + X);
+    //console.log('XX ' + Math.ceil((21.065)*100)/100);
 	//return (X / Math.pow(10,dec)).toFixed(dec);
-    return (Math.ceil(n*X)/X).toFixed(dec);
+    //return (Math.ceil(n*X)/X).toFixed(dec);
+    return (Math.ceil(n * 100) / 100).toFixed(dec);
 }
 
 function resetValues(form) {

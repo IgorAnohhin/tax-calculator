@@ -156,14 +156,17 @@ function calculate(data) {
 }
 
 function round(n,dec) {
-	X = n * Math.pow(10,dec);
-	//X= Math.round(X);
+	dr = 3
+    x = n * Math.pow(10, dr);
+	x = Math.round(x);
+    pow = (x / Math.pow(10, dr));
     //console.log('n ' + n);
-    //console.log('X ' + X);
-    //console.log('XX ' + Math.ceil((21.065)*100)/100);
-	//return (X / Math.pow(10,dec)).toFixed(dec);
-    //return (Math.ceil(n*X)/X).toFixed(dec);
-    return (Math.ceil(n * 100) / 100).toFixed(dec);
+    //console.log('X ' + x);
+    //console.log('XX ' + Math.ceil((21.065) * 100)/100);
+
+    //return (x / Math.pow(10, dec)).toFixed(dec);
+    //return (Math.ceil(n * x) / x).toFixed(dec);
+    return (Math.round(pow * 100) / 100).toFixed(dec);
 }
 
 function resetValues(form) {
